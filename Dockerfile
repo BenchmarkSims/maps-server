@@ -32,6 +32,9 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
 # Make sure curl is installed
 RUN apk add --no-cache curl
 
+# Install missing modules
+RUN npm install ws
+
 # Create directory
 RUN mkdir -p ${APP_DIR}
 
