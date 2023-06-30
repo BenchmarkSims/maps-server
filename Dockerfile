@@ -40,7 +40,7 @@ COPY source ${APP_DIR}
 RUN chown -R node:node ${APP_DIR}
 
 # Declare application directory into environment variables
-ENV APP_DIR=/opt/node
+ENV APP_DIR ${APP_DIR}
 
 # Declare container run options
 SHELL ["/bin/sh", "-c"]
@@ -52,6 +52,6 @@ ENV NODE_DEBUG="net,http,module"
 
 HEALTHCHECK CMD curl -f http://localhost:${MAPS_SERVER_PORT} || false
 
-CMD ["node ${APP_DIR}/index.js ${MAPS_SERVER_PORT}"]
+CMD node ${APP_DIR}/index.js ${MAPS_SERVER_PORT}
 
 EXPOSE ${MAPS_SERVER_PORT}
