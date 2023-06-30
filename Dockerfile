@@ -30,7 +30,7 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
   org.opencontainers.image.url="https://hub.docker.com/r/${PACKAGE}/"
 
 # Make sure curl is installed
-apk add --no-cache curl
+RUN apk add --no-cache curl
 
 # Create directory
 RUN mkdir -p ${APP_DIR}
