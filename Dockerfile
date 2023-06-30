@@ -28,7 +28,7 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
   org.opencontainers.image.source="https://github.com/${PACKAGE}" \
   org.opencontainers.image.revision=$REVISION \
   org.opencontainers.image.version=$VERSION \
-  org.opencontainers.image.url="https://hub.docker.com/r/${PACKAGE}/"
+  org.opencontainers.image.url="https://ghcr.io/${PACKAGE}"
 
 # Make sure curl is installed
 RUN apk add --no-cache curl
