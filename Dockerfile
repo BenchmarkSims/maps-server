@@ -12,6 +12,7 @@ ARG VERSION="0.1.0"
 
 # Define where application will run
 ARG APP_DIR=/opt/node
+WORKDIR ${APP_DIR}
 
 # Environment variables passed through container run
 ENV \
@@ -33,7 +34,7 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
 RUN apk add --no-cache curl
 
 # Install missing modules
-RUN npm install ws
+RUN /usr/local/bin/npm install
 
 # Create directory
 RUN mkdir -p ${APP_DIR}
@@ -50,7 +51,6 @@ SHELL ["/bin/sh", "-c"]
 
 STOPSIGNAL SIGINT
 
-WORKDIR ${APP_DIR}
 ENV NODE_DEBUG="net,http,module"
 
 HEALTHCHECK CMD curl -f http://localhost:${MAPS_SERVER_PORT} || false
