@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+    target-branch: "dev"
+     # Add reviewers
+    reviewers:
+      - "MaxWaldorf"
+
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+    target-branch: "dev"
+    reviewers:
+      - "MaxWaldorf"
+      
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+    target-branch: "dev"
+    reviewers:
+      - "MaxWaldorf"
