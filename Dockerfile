@@ -33,15 +33,15 @@ LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
 # Make sure curl is installed
 RUN apk add --no-cache curl
 
-# Install missing modules
-RUN /usr/local/bin/npm install
-
 # Create directory
 RUN mkdir -p ${APP_DIR}
 
 # Copy application content and proper rights
 COPY source ${APP_DIR}
 RUN chown -R node:node ${APP_DIR}
+
+# Install missing modules
+RUN /usr/local/bin/npm install
 
 # Declare application directory into environment variables
 ENV APP_DIR ${APP_DIR}
